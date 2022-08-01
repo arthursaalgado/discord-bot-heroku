@@ -1,5 +1,10 @@
 import discord
 
+
+with file as open('token', 'r'):
+    TOKEN = file.read()
+
+
 class MyClient(discord.Client):
     async def on_ready():
         print(f'Logged on as {self.user}')
@@ -9,4 +14,4 @@ class MyClient(discord.Client):
 
 
 client = MyClient()
-client.run('')
+client.run(TOKEN)
