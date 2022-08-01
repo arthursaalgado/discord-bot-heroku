@@ -1,7 +1,7 @@
 import discord
 
 
-with file as open('token', 'r'):
+with open('token', 'r') as file:
     TOKEN = file.read()
 
 
