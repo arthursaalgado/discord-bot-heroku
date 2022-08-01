@@ -10,8 +10,10 @@ class MyClient(discord.Client):
     async def on_ready(self):
         print(f'Logged on as {self.user}')
     
-    async def on_message(self):
+    async def on_message(self, message):
         print(f'Message from {self.author}: {self.content}')
+
+    
 
 logger = logging.getLogger('discord')
 logger.setLevel(logging.DEBUG)
