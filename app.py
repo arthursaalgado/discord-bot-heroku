@@ -6,10 +6,11 @@ with open('token', 'r') as file:
 
 
 class MyClient(discord.Client):
-    async def on_ready():
+    
+    async def on_ready(self):
         print(f'Logged on as {self.user}')
     
-    async def on_message():
+    async def on_message(self):
         print(f'Message from {self.author}: {self.content}')
 
 
