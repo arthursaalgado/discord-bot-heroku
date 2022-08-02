@@ -34,6 +34,6 @@ async def roll(ctx, dice: str):
 @bot.command()
 async def joined(ctx, membe:discord.Member):
     """Says when a member joined."""
-    await ctx.send(f'{member.name}' entrou {discord.utils.format_dt(member.joined_at)}')
+    await ctx.send(f'{member.name} entrou {discord.utils.format_dt(member.joined_at)}')
 
 bot.run(os.environ['TOKEN'])
