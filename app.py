@@ -34,6 +34,6 @@ async def roll(ctx, dice: str):
 @bot.command()
 async def joined(message, member:discord.Member):
     """Diz a quanto tempo o camarada está entre a gente."""
-    await message.reply(f'{member.name} entrou {member.joined_at}')
+    await message.reply(f'@{member.name} entrou {member.joined_at}')
 
 bot.run(os.environ['TOKEN'])
