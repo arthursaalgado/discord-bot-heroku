@@ -8,7 +8,6 @@ description = '''TODO: bot description'''
 
 intents = discord.Intents.default()
 intents.members = True
-intents.messages = True
 
 bot = commands.Bot(command_prefix='!', description=description, intents=intents)
 
