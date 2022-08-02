@@ -1,5 +1,6 @@
 import discord
 import logging
+import os
 
 
 with open('token', 'r') as file:
@@ -22,4 +23,4 @@ handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(me
 logger.addHandler(handler)
 
 client = MyClient()
-client.run(TOKEN)
+client.run(os.envron['TOKEN_KEY'])
