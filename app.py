@@ -6,7 +6,7 @@ import random
 
 
 intents = discord.Intents.default()
-intents.member = True
+intents.members = True
 intents.message_content = True
 
 bot = commands.Bot(command_prefix='?', description=description, intents=intents)
@@ -19,6 +19,5 @@ async def on_ready():
 @bot.command()
 async def add(ctx, left:int, right:int):
     await ctx.send(left+right)
-
 
 bot.run(os.getenv['TOKEN_KEY'])
