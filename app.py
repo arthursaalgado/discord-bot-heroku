@@ -18,6 +18,12 @@ async def on_ready():
     async for guild in bot.fetch_guilds():
         print('~ '+guild.name)
 
+@bot.event
+async def on_message(message):
+    if message.author.id == bot.user.id:
+        return
+    print(message.author, message.channel, message.content)
+
 @bot.command()
 async def add(ctx, left:int, right:int):
     await ctx.send(left+right)
