@@ -1,5 +1,5 @@
 import discord
-from discord.ext import comamands
+from discord.ext import commands
 
 import os
 import random
@@ -9,7 +9,7 @@ intents = discord.Intents.default()
 intents.member = True
 intents.message_content = True
 
-bot = comamands.Bot(command_prefix='?', description=description, intents=intents)
+bot = commands.Bot(command_prefix='?', description=description, intents=intents)
 
 @bot.event
 async def on_ready():
