@@ -23,6 +23,7 @@ async def on_message(message):
     if message.author.id == bot.user.id:
         return
     print(message.author, message.channel, message.content)
+    await message.reply('salve', mention_author = True)
 
 @bot.command()
 async def add(ctx, left:int, right:int):
