@@ -12,12 +12,15 @@ async def on_ready():
         print('- '+guild.name)
 
 @bot.event
-async def on_message(ctx):
+async def on_message(message):
+	if (message.author == client.user) :
+		return
 	print(
-		ctx.author,
-		ctx.content,
-		ctx.guild,
+		message.author,
+		message.content,
+		message.channel,
 	)
-	await ctx.send('salve')
+
+	await message.channel.send('salve')
 
 bot.run(os.environ['TOKEN_KEY'])
