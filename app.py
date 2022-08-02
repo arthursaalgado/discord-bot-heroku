@@ -14,8 +14,8 @@ async def on_ready():
 @bot.event
 async def on_message(ctx):
 	print(
-		ctx.message.author,
-		ctx.message.text,
+		ctx.author,
+		ctx.content,
 		ctx.guild,
 	)
 	await ctx.send('salve')
