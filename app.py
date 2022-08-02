@@ -18,9 +18,12 @@ async def on_ready():
     async for guild in bot.fetch_guilds():
         print('~ '+guild.name)
 
+
+
 @bot.command()
 async def roll(ctx, dice: str):
-    '''Roda um dado NxN'''
+    '''Roda um dado NxN. 
+    Meio incoerente'''
     try: 
         rolls, limit = map(int, dice.split('x'))
     except Exception:
@@ -28,5 +31,9 @@ async def roll(ctx, dice: str):
     result = ', '.join(str(random.randint(1, limit)) for r in range(rolls))
     await ctx.send(result)
     
+@bot.command()
+async def joined(ctx, membe:discord.Member):
+    """Says when a member joined."""
+    await ctx.send(f'{member.name}' entrou {discord.utils.format_dt(member.joined_at)}')
 
 bot.run(os.environ['TOKEN'])
