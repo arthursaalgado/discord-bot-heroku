@@ -13,14 +13,11 @@ async def on_ready():
 
 @bot.event
 async def on_message(message):
-	if (message.author == client.user) :
-		return
 	print(
 		message.author,
 		message.content,
 		message.channel,
 	)
-
 	await message.channel.send('salve')
 
 bot.run(os.environ['TOKEN_KEY'])
