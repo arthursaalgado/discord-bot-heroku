@@ -32,8 +32,8 @@ async def roll(ctx, dice: str):
         await ctx.send('O dado deve ser NdN')
 
 @bot.command()
-async def joined(ctx, member:discord.Member):
-    """Says when a member joined."""
-    await ctx.send(f'{member.name} entrou {member.joined_at}')
+async def joined(message, member:discord.Member):
+    """Diz a quanto tempo o camarada está entre a gente."""
+    await message.reply(f'{member.name} entrou {member.joined_at}')
 
 bot.run(os.environ['TOKEN'])
