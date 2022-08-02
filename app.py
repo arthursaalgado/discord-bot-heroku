@@ -7,10 +7,11 @@ from discord.ext import commands
 client = commands.Bot(command_prefix = '!')
 
 @client.event
-async def on_ready():
+async def on_ready(ctx):
     print(f'{client.user.name} is online!\n Currently connect to:')
     async for guild in client.fetch_guilds():
         print('- '+guild.name)
+    await ctx.send('salve')
 
 @client.event
 async def on_message(ctx):
