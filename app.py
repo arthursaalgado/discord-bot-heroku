@@ -29,8 +29,4 @@ async def roll(ctx, dice: str):
     await ctx.send(result)
     
 
-@bot.command()
-async def add(ctx, left:int, right:int):
-    await ctx.send(left+right)
-
 bot.run(os.environ['TOKEN'])
