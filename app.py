@@ -6,7 +6,7 @@ from discord.ext import commands
 
 client = commands.Bot(command_prefix = '!')
 
-@bot.event
+@client.event
 async def on_ready():
     print(f'{client.user.name} is online!\n Currently connect to:')
     async for guild in client.fetch_guilds():
