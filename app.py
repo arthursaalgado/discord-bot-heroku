@@ -4,7 +4,7 @@ from discord.ext import commands
 import os
 import random
 
-print(discord.__version__)
+description = '''TODO: bot description'''
 
 intents = discord.Intents.default()
 intents.members = True
