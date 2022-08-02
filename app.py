@@ -34,6 +34,20 @@ async def roll(ctx, dice: str):
 @bot.command()
 async def joined(message, member:discord.Member):
     """Diz a quanto tempo o camarada está entre a gente."""
-    await message.reply(f'@{member.name} entrou {member.joined_at}')
+    await message.reply(f'{member.name} entrou {member.joined_at}')
+
+@bot.group()
+async def cool(ctx):
+    """Says if a user is cool.
+    In reality this just checks if a subcommand is being invoked.
+    """
+    if ctx.invoked_subcommand is None:
+        await ctx.send(f'No, {ctx.subcommand_passed} is not cool')
+
+
+@cool.command(name='bot')
+async def _bot(ctx):
+    """Is the bot cool?"""
+    await ctx.send('Yes, the bot is cool.')
 
 bot.run(os.environ['TOKEN'])
