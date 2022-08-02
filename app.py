@@ -7,7 +7,7 @@ from typing import List, Optional
 
 import asyncpg
 import discord
-import discord.ext import commands
+from discord.ext import commands
 from aiohttp import ClientSession
 
 class CustomBot(commands.Bot):
