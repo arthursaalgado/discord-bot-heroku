@@ -13,8 +13,10 @@ bot = commands.Bot(command_prefix='!', description=description, intents=intents)
 
 @bot.event
 async def on_ready():
-    print(f'Logged in as {bot.user} (ID: {bot.user.id}')
+    print(f'Logged in as {bot.user} (ID: {bot.user.id})')
     print('----------')
+    async for guild in bot.fetch_guilds():
+        print('~ '+guild.name)
 
 @bot.command()
 async def add(ctx, left:int, right:int):
