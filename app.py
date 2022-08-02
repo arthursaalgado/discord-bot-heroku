@@ -8,7 +8,7 @@ print(discord.__version__)
 
 intents = discord.Intents.default()
 intents.members = True
-intents.message_content = True
+intents.message = True
 
 bot = commands.Bot(command_prefix='!', description=description, intents=intents)
 
