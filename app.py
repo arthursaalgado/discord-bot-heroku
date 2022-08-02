@@ -21,7 +21,7 @@ class CustomBot(commands.Bot):
         testing_guild_id: Optional[int] = None,
         **kwargs
     ):
-        super().__init__(*args. **kwargs)
+        super().__init__(*args, **kwargs)
         self.db_pool = db_pool
         self.web_client = web_client
         self.testing_guild_id = testing_guild_id
