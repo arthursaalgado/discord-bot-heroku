@@ -22,7 +22,7 @@ async def on_ready():
 async def roll(ctx, dice: str):
     '''Roda um dado NxN'''
     try: 
-        rolls, limit = map(int, dice.split('d'))
+        rolls, limit = map(int, dice.split('x'))
     except Exception:
         await ctx.send('O dado deve ser NxN')
     result = ', '.join(str(random.randint(1, limit)) for r in range(rolls))
