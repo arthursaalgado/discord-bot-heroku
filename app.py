@@ -11,11 +11,6 @@ async def on_ready(ctx):
     print(f'{bot.user.name} is online!\n Currently connect to:')
     async for guild in bot.fetch_guilds():
         print('- '+guild.name)
-    await ctx.send('salve')
-
-@bot.event
-async def on_message(ctx):
-    print(ctx.message)
 
 logger = logging.getLogger('discord')
 logger.setLevel(logging.DEBUG)
