@@ -18,12 +18,16 @@ async def on_ready():
     async for guild in bot.fetch_guilds():
         print('~ '+guild.name)
 
-@bot.event
-async def on_message(message):
-    if message.author.id == bot.user.id:
-        return
-    print(message.author, message.channel, message.content)
-    await message.reply('salve', mention_author = True)
+@bot.command()
+async def roll(ctx, dice: str):
+    '''Roda um dado NxN'''
+    try: 
+        rolls, limit = map(int, dice.split('d'))
+    except Exception:
+        await ctx.send('O dado deve ser NxN')
+    result = ', '.join(str(random.randint(1, limit)) for r in range(rolls))
+    await ctx.send(result)
+    
 
 @bot.command()
 async def add(ctx, left:int, right:int):
