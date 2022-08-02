@@ -12,7 +12,9 @@ async def on_ready():
     async for guild in client.fetch_guilds():
         print('- '+guild.name)
 
-
+@client.event
+async def on_message(ctx):
+    print(ctx.message)
 
 logger = logging.getLogger('discord')
 logger.setLevel(logging.DEBUG)
