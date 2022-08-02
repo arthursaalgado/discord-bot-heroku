@@ -36,7 +36,7 @@ async def joined(ctx, message, member:discord.Member):
     """Says when a member joined."""
 
     #TODO :: faça a conta (O <usuário> entrou a <X unidade de tempo>)
-    await message.reply(f'@{member.user} entrou em {member.joined_at}', mention_author = Trye)
+    await message.reply(f'@{member.name} entrou em {member.joined_at}', mention_author = Trye)
 
 @bot.group()
 async def cool(ctx):
