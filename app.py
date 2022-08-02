@@ -25,15 +25,31 @@ async def roll(ctx, dice: str):
     '''Roda um dado NxN. 
     Meio incoerente'''
     try: 
-        rolls, limit = map(int, dice.split('x'))
+        rolls, limit = map(int, dice.split('d'))
+        result = ', '.join(str(random.randint(1, limit)) for r in range(rolls))
+        await ctx.send(result)
     except Exception:
-        await ctx.send('O dado deve ser NxN')
-    result = ', '.join(str(random.randint(1, limit)) for r in range(rolls))
-    await ctx.send(result)
+        await ctx.send('O dado deve ser NdN')
 
 @bot.command()
-async def joined(ctx, member:discord.Member):
+async def joined(ctx, message, member:discord.Member):
     """Says when a member joined."""
-    await ctx.send(f'{member.name} entrou {member.joined_at}')
+
+    #TODO :: faça a conta (O <usuário> entrou a <X unidade de tempo>)
+    await message.reply(f'@{member.user} entrou em {member.joined_at}', mention_author = Trye)
+
+@bot.group()
+async def cool(ctx):
+    """Says if a user is cool.
+    In reality this just checks if a subcommand is being invoked.
+    """
+    if ctx.invoked_subcommand is None:
+        await ctx.send(f'No, {ctx.subcommand_passed} is not cool')
+
+
+@cool.command(name='bot')
+async def _bot(ctx):
+    """Is the bot cool?"""
+    await ctx.send('Yes, the bot is cool.')
 
 bot.run(os.environ['TOKEN'])
