@@ -20,4 +20,4 @@ async def on_ready():
 async def add(ctx, left:int, right:int):
     await ctx.send(left+right)
 
-bot.run(os.getenv['TOKEN_KEY'])
+bot.run(os.getenv['TOKEN'])
