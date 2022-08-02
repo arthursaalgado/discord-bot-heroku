@@ -20,4 +20,4 @@ handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(me
 logger.addHandler(handler)
 
 client = MyClient()
-client.run(os.envron['TOKEN_KEY'])
+client.run(os.environ['TOKEN_KEY'])
