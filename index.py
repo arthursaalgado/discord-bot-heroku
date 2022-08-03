@@ -4,7 +4,7 @@ import os
 
 from discord.ext import commands
 
-class MyClient(commands.Cog):
+class MyBot(commands.Cog):
     def __init__(self, bot):
         self.bot=bot
 
@@ -19,15 +19,15 @@ class MyClient(commands.Cog):
 intents = discord.Intents.default()
 description = 'BeeluBot v1.0'
 
-client = commands.Bot(
+bot = commands.Bot(
     command_prefix='!',
     description=description,
     intents = intents
 )
 
 async def main():
-    async with client:    
-        await client.add_cog(MyClient(client))
-        await client.run(os.environ['TOKEN'])
+    async with bot:    
+        await bot.add_cog(MyBot(bot))
+        await bot.run(os.environ['TOKEN'])
 
 asyncio.run(main())
