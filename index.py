@@ -23,9 +23,7 @@ async def on_ready():
     print('~~~~~~~~~~')
 
 async def main():
-    async with client:
-        await client.add_cog(Music(client))
-        await client.start(os.environ['TOKEN'])
+    await client.add_cog(Music(client))
+    await client.start(os.environ['TOKEN'])
 
-loop = asyncio.get_event_loop()
-loop.run_until_complete(main())
+asyncio.run(main())
