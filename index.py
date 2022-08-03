@@ -25,6 +25,6 @@ async def on_ready():
 async def main():
     async with client:
         await client.add_cog(Music(client))
-        await client.run(os.environ['TOKEN'])
+        await client.start(os.environ['TOKEN'])
 
 asyncio.run(main())
