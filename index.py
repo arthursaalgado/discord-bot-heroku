@@ -27,4 +27,5 @@ async def main():
         await client.add_cog(Music(client))
         await client.start(os.environ['TOKEN'])
 
-asyncio.run(main)
+loop = asyncio.get_event_loop()
+loop.run_until_complete(main())
