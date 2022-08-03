@@ -8,7 +8,7 @@ class MyBot(commands.Cog):
     def __init__(self, bot):
         self.bot=bot
 
-    @bot.event
+    @commands.event
     async def on_ready():
         print(f'Logged in as {bot.user} (ID: {bot.user.id})')
         print('----------')
