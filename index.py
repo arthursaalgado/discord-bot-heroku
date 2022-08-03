@@ -20,12 +20,12 @@ bot = commands.Bot(
 
 @bot.event
 async def on_ready():
-    print(f'Logged in as {bot.user} (ID: {bot.user.id})\nCurrently connected to:')
-    async for guild in bot.fetch_guilds():
-        print(' '+guild.name)
+    print('~~~~~~~~~~')
+    print(f'Logged in as {bot.user} (ID: {bot.user.id})')
+    print('~~~~~~~~~~')
 
 async def main():
-    async with bot:    
+    async with bot:
         await bot.add_cog(Music(bot))
         await bot.start(os.environ['TOKEN'])
 
