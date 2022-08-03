@@ -7,8 +7,7 @@ from discord.ext import commands
 class MyBot(commands.Cog):
     def __init__(self, bot):
         self.bot=bot
-
-    @commands.event
+        
     async def on_ready():
         print(f'Logged in as {bot.user} (ID: {bot.user.id})')
         print('----------')
