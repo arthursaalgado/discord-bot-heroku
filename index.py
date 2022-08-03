@@ -17,10 +17,11 @@ class MyClient(commands.Cog):
 
 
 intents = discord.Intents.default()
+description = 'BeeluBot v1.0'
 
 client = commands.Bot(
-    command_prefix=commands.when_mentioned_or("!")
-    description = 'BeeluBot v1.0',
+    command_prefix='!',
+    description=description,
     intents = intents
 )
 
