@@ -23,7 +23,7 @@ async def on_ready():
     print('~~~~~~~~~~')
 
 async def main():
-    async with client:
+    with client:
         await client.add_cog(Music(client))
         await client.start(os.environ['TOKEN'])
 
