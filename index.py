@@ -22,6 +22,9 @@ async def on_ready():
     print(f'Logged in as {bot.user} (ID: {bot.user.id})')
     print('~~~~~~~~~~')
 
+async def main():
+    async with bot:
+        await bot.add_cog(Music(bot))
+        await bot.start(os.environ['TOKEN'])
 
-bot.add_cog(Music(bot))
-bot.run(os.environ['TOKEN'])
+asyncio.run(main())
