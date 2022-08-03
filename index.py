@@ -11,20 +11,17 @@ class Music(commands.Cog):
 
 intents = discord.Intents.default()
 
-client = commands.Bot(
+bot = commands.Bot(
     command_prefix='!',
     intents = intents
 )
 
-@client.event
+@bot.event
 async def on_ready():
     print('~~~~~~~~~~')
     print(f'Logged in as {bot.user} (ID: {bot.user.id})')
     print('~~~~~~~~~~')
 
-async def main():
-    async with client:
-        await client.add_cog(Music(client))
-        await client.start(os.environ['TOKEN'])
 
-asyncio.run(main())
+bot.add_cog(Music(bot))
+bot.start(os.environ['TOKEN'])
