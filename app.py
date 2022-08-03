@@ -23,7 +23,7 @@ async def on_ready():
 @bot.command()
 async def roll(ctx, dice: str):
     '''Roda N dados.
-    Exemplo: ```!roll 1d6```'''
+    Exemplo: !roll 1d6'''
     try: 
         rolls, limit = map(int, dice.split('d'))
         result = ', '.join(str(random.randint(1, limit)) for r in range(rolls))
@@ -34,7 +34,7 @@ async def roll(ctx, dice: str):
 @bot.command()
 async def joined(ctx, message, member: discord.Member):
     """Diz a quanto tempo o camarada está entre a gente.
-    Exemplo: ```!joined @beelu```"""
+    Exemplo: !joined @beelu"""
     if(subcommand(ctx)):
         await message.reply(f'{member.name} entrou {member.joined_at}')
     else:
@@ -42,7 +42,7 @@ async def joined(ctx, message, member: discord.Member):
 @bot.command(description='Uni-du-ni-tê')
 async def choose(message, *choices: str):
     '''Escolhe entre multiplas escolhas.
-    Exemplo: ````!choose 1 2 3 4```'''
+    Exemplo: !choose 1 2 3 4'''
     await message.reply(random.choice(choices))
 
 async def subcommand(ctx):
