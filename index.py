@@ -7,19 +7,16 @@ class Music(commands.Cog):
     def __init__(self, bot):
         self.bot=bot
 
-class Client(discord.Client):
-    @bot.event
+class Client(commands.Bot):
+    @commands.Bot.event
     async def on_ready():
-        print('~~~~~~~~~~')
         print(f'Logged in as {bot.user} (ID: {bot.user.id})')
         print('~~~~~~~~~~')
 
 intents = discord.Intents.default()
-description = '''BeeluBot v1.0.0'''
 
 bot = commands.Bot(
     command_prefix='!',
-    description=description,
     intents = intents
 )
 
