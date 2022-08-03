@@ -1,5 +1,4 @@
 import asyncio, discord
-import os, random
 
 from discord.ext import commands
 
@@ -11,13 +10,13 @@ class Music(commands.Cog):
     TODO: ADD MUSIC METHODS
     '''
 
-class MyClient(commands.Cog):
+class Managing(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
     @commands.Cog.listener()
-    async def on_ready():
-        print(f'Logged in as {bot.user} (ID: {bot.user.id})')
+    async def on_ready(self):
+        print(f'Logged in as {self.bot.user} (ID: {self.bot.user.id})')
         print('~~~~~~~~~~')
 
     '''
