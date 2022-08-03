@@ -22,7 +22,7 @@ bot = commands.Bot(
 async def main():
     async with bot:
         await bot.add_cog(Music(bot))
-        await bot.add_cog(Client(bot))
+        await bot.add_cog(Client())
         await bot.start(os.environ['TOKEN'])
 
 asyncio.run(main())
