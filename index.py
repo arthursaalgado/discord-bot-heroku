@@ -4,15 +4,9 @@ import os
 
 from discord.ext import commands
 
-class MyBot(commands.Cog):
+class Music(commands.Cog):
     def __init__(self, bot):
         self.bot=bot
-        
-    async def on_ready():
-        print(f'Logged in as {bot.user} (ID: {bot.user.id})')
-        print('----------')
-        async for guild in bot.fetch_guilds():
-            print('~ '+guild.name)
 
 
 intents = discord.Intents.default()
@@ -23,6 +17,13 @@ bot = commands.Bot(
     description=description,
     intents = intents
 )
+
+@bot.event
+async def on_ready():
+    print(f'Logged in as {bot.user} (ID: {bot.user.id})')
+    print('----------')
+    async for guild in bot.fetch_guilds():
+        print('~ '+guild.name)
 
 async def main():
     async with bot:    
