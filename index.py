@@ -10,11 +10,9 @@ class Music(commands.Cog):
 
 
 intents = discord.Intents.default()
-description = 'BeeluBot v1.0'
 
 bot = commands.Bot(
     command_prefix='!',
-    description=description,
     intents = intents
 )
 
@@ -27,6 +25,6 @@ async def on_ready():
 async def main():
     async with bot:
         await bot.add_cog(Music(bot))
-        await bot.start(os.environ['TOKEN'])
+        await bot.run(os.environ['TOKEN'])
 
 asyncio.run(main())
