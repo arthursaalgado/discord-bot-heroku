@@ -20,14 +20,13 @@ bot = commands.Bot(
 
 @bot.event
 async def on_ready():
-    print(f'Logged in as {bot.user} (ID: {bot.user.id})')
-    print('----------')
+    print(f'Logged in as {bot.user} (ID: {bot.user.id})\nCurrently connected to:')
     async for guild in bot.fetch_guilds():
-        print('~ '+guild.name)
+        print(' '+guild.name)
 
 async def main():
     async with bot:    
-        await bot.add_cog(MyBot(bot))
-        await bot.run(os.environ['TOKEN'])
+        await bot.add_cog(Music(bot))
+        await bot.start(os.environ['TOKEN'])
 
 asyncio.run(main())
