@@ -8,7 +8,6 @@ class Music(commands.Cog):
         self.bot=bot
 
 class Client(commands.Bot):
-    @commands.Bot.event
     async def on_ready():
         print(f'Logged in as {bot.user} (ID: {bot.user.id})')
         print('~~~~~~~~~~')
