@@ -47,9 +47,9 @@ async def choose(message, *choices: str):
     Exemplo: !choose 1 2 3 4'''
     await message.reply(random.choice(choices))
 
-async def subcommand(ctx):
-    '''Checks if a subcommand is being invoked.'''
-    return 1 if ctx.invoked_subcommand != None else 0
+    async def subcommand(ctx):
+        '''Checks if a subcommand is being invoked.'''
+        return 1 if ctx.invoked_subcommand != None else 0
 
 
 

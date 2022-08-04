@@ -1,4 +1,6 @@
-import asyncio, discord
+import asyncio
+import discord
+import random
 import os
 
 from discord.ext import commands
@@ -24,7 +26,7 @@ class MyBot(commands.Cog):
         print('~~~~~~~~~~')
 
     @commands.command()
-    async def roll(self, ctx, dice: str):
+    async def roll(self, message, dice: str):
         '''Rola dados.
 
         Exemplo: `!roll 1d6`
@@ -32,11 +34,23 @@ class MyBot(commands.Cog):
         try: 
             rolls, limit = map(int, dice.split('d'))
             result = ', '.join(str(random.randint(1, limit)) for r in range(rolls))
-            await ctx.send(result)
+            await message.reply(result)
         except Exception:
-            await ctx.send('Especifique quantos dados e qual dado deve ser lançado.\nExemplo: `!roll 1d6`')
+            await message.reply('Especifique quantos dados e qual dado deve ser lançado.\nExemplo: `!roll 1d6`')
 
+    @commands.command()
+    async def joined(self, ctx, message, member: discord.Member):
+        """Diz a quanto tempo o camarada está entre a gente.
 
+        Exemplo: !joined @beelu"""
+        if(await self.subcommand(ctx)):
+            await message.reply(f'{member.name} entrou {member.joined_at}')
+        else:
+            await message.reply(f'Por favor mencione (@) o nome do usuário.')
+    
+    async def subcommand(self, ctx):
+        '''Checks if a subcommand is being invoked.'''
+        return 1 if ctx.invoked_subcommand != None else 0
 
 
 intents = discord.Intents.default()
