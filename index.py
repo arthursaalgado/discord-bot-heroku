@@ -45,6 +45,7 @@ class MainClient(commands.Cog):
             await message.reply(f'{member.name} entrou {member.joined_at}')
         else:
             await message.reply(f'Por favor mencione (@) o nome do usuário.')
+
     @commands.command(description='Uni-du-ni-tê')
     async def choose(message, *choices: str):
         '''Escolhe entre multiplas escolhas.
@@ -52,12 +53,10 @@ class MainClient(commands.Cog):
         Exemplo: !choose 1 2 3 4'''
         await message.reply(random.choice(choices))
 
-
-
-#misc
-async def subcommand(ctx):
-    '''Checks if a subcommand is being invoked.'''
-    return 1 if ctx.invoked_subcommand != None else 0
+    #misc
+    async def subcommand(ctx):
+        '''Checks if a subcommand is being invoked.'''
+        return 1 if ctx.invoked_subcommand != None else 0
 
 
 intents = discord.Intents.default()
