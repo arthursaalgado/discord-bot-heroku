@@ -24,16 +24,21 @@ class Managing(commands.Cog):
     TODO: ADD BASIC METHODS
     '''
 
+
 intents = discord.Intents.default()
 bot = commands.Bot(
     command_prefix='!',
     intents = intents
 )
 
+async def setup(bot):
+    await bot.add_cog(Music(bot))
+    await bot.add_cog(Managing(bot))
+        
+
 async def main():
     async with bot:
-        await bot.add_cog(Music(bot))
-        await bot.add_cog(Managing(bot))
+        await setup(bot)
         await bot.start(os.environ['TOKEN'])
 
 asyncio.run(main())
