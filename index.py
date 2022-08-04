@@ -24,34 +24,8 @@ class MainClient(commands.Cog):
         print('~~~~~~~~~~')
 
     @commands.command()
-    async def roll(self, ctx, dice: str):
-        '''Rola dados.
-
-        Exemplo: !roll 1d6
-                !roll 2d20'''
-        try: 
-            rolls, limit = map(int, dice.split('d'))
-            result = ', '.join(str(random.randint(1, limit)) for r in range(rolls))
-            await ctx.send(result)
-        except Exception:
-            await ctx.send('O dado deve ser NdN')
-
-    @commands.command()
-    async def joined(self, ctx, message, member: discord.Member):
-        """Diz a quanto tempo o camarada está entre a gente.
-
-        Exemplo: !joined @beelu"""
-        if(subcommand(ctx)):
-            await message.reply(f'{member.name} entrou {member.joined_at}')
-        else:
-            await message.reply(f'Por favor mencione (@) o nome do usuário.')
-
-    @commands.command(description='Uni-du-ni-tê')
-    async def choose(self, message, *choices: str):
-        '''Escolhe entre multiplas escolhas.
-
-        Exemplo: !choose 1 2 3 4'''
-        await message.reply(random.choice(choices))
+    async def hello(self, ctx):
+        await ctx.send('salve')
 
     #misc
     async def subcommand(self, ctx):
