@@ -31,6 +31,7 @@ class MyBot(commands.Cog):
 
         Exemplo: `!roll 1d6`
                  `!roll 2d20`'''
+        print(dice)
         try: 
             rolls, limit = map(int, dice.split('d'))
             result = ', '.join(str(random.randint(1, limit)) for r in range(rolls))
