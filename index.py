@@ -25,7 +25,7 @@ class MainClient(commands.Cog):
 
     @commands.command()
     async def hello(self, ctx):
-        await ctx.send('salve')
+        await ctx.send('wassup')
 
     #misc
     async def subcommand(self, ctx):
@@ -34,6 +34,8 @@ class MainClient(commands.Cog):
 
 
 intents = discord.Intents.default()
+intents = message_content = True
+
 bot = commands.Bot(
     command_prefix='!',
     intents = intents
