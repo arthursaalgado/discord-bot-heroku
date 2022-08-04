@@ -13,7 +13,7 @@ class Music(commands.Cog):
     '''
 
 
-#MainClinet.py
+#MainClient.py
 class MainClient(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -24,13 +24,9 @@ class MainClient(commands.Cog):
         print('~~~~~~~~~~')
 
     @commands.command()
-    async def hello(self, ctx):
-        await ctx.send('wassup')
+    async def hello(self, message):
+        await message.reply('wassup')
 
-    #misc
-    async def subcommand(self, ctx):
-        '''Checks if a subcommand is being invoked.'''
-        return 1 if ctx.invoked_subcommand != None else 0
 
 
 intents = discord.Intents.default()
