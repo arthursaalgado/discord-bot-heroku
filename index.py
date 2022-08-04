@@ -37,7 +37,7 @@ class MyBot(commands.Cog):
             result = ', '.join(str(random.randint(1, limit)) for r in range(rolls))
             await message.reply(result)
         except Exception:
-            await message.reply('Especifique quantos dados e qual dado deve ser lançado.\nExemplo: `!roll 1d6`')
+            await message.reply('wrong syntax')
 
     @commands.command()
     async def joined(self, ctx, message, member: discord.Member):
