@@ -43,7 +43,7 @@ class MyBot(commands.Cog):
         """Diz a quanto tempo o camarada está entre a gente.
 
         Exemplo: !joined @beelu"""
-        if(await self.subcommand(ctx)):
+        if(await self.subcommand(self, ctx)):
             await message.reply(f'{member.name} entrou {member.joined_at}')
         else:
             await message.reply(f'Por favor mencione (@) o nome do usuário.')
