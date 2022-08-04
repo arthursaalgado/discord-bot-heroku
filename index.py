@@ -24,7 +24,7 @@ class MainClient(commands.Cog):
         print('~~~~~~~~~~')
 
     @commands.command()
-    async def roll(ctx, dice: str):
+    async def roll(self, ctx, dice: str):
         '''Rola dados.
 
         Exemplo: !roll 1d6
@@ -37,7 +37,7 @@ class MainClient(commands.Cog):
             await ctx.send('O dado deve ser NdN')
 
     @commands.command()
-    async def joined(ctx, message, member: discord.Member):
+    async def joined(self, ctx, message, member: discord.Member):
         """Diz a quanto tempo o camarada está entre a gente.
 
         Exemplo: !joined @beelu"""
@@ -47,14 +47,14 @@ class MainClient(commands.Cog):
             await message.reply(f'Por favor mencione (@) o nome do usuário.')
 
     @commands.command(description='Uni-du-ni-tê')
-    async def choose(message, *choices: str):
+    async def choose(self, message, *choices: str):
         '''Escolhe entre multiplas escolhas.
 
         Exemplo: !choose 1 2 3 4'''
         await message.reply(random.choice(choices))
 
     #misc
-    async def subcommand(ctx):
+    async def subcommand(self, ctx):
         '''Checks if a subcommand is being invoked.'''
         return 1 if ctx.invoked_subcommand != None else 0
 
