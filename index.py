@@ -1,4 +1,5 @@
 import asyncio
+from types import NoneType
 import discord
 import random
 import os
@@ -31,13 +32,15 @@ class MyBot(commands.Cog):
 
         Exemplo: `!roll 1d6`
                  `!roll 2d20`'''
-        print(dice)
-        try: 
-            rolls, limit = map(int, dice.split('d'))
-            result = ', '.join(str(random.randint(1, limit)) for r in range(rolls))
-            await message.reply(result)
-        except Exception:
-            await message.reply('wrong syntax')
+        if await self.subcommand(ctx):
+            try: 
+                rolls, limit = map(int, dice.split('d'))
+                result = ', '.join(str(random.randint(1, limit)) for r in range(rolls))
+                await message.reply(result)
+            except Exception:
+                await message.reply('Especifique quantos dados e qual dado deve ser lançado.\nExemplo: `!roll 1d6`')
+        else:
+            await message.reply('Especifique quantos dados e qual dado deve ser lançado.\nExemplo: `!roll 1d6`')
 
     @commands.command()
     async def joined(self, ctx, message, member: discord.Member):
@@ -47,7 +50,8 @@ class MyBot(commands.Cog):
         if(await self.subcommand(ctx)):
             await message.reply(f'{member.name} entrou {member.joined_at}')
         else:
-            await message.reply(f'Por favor mencione (@) o nome do usuário.')
+            member = ctx.author
+            await message.reply(f'{member.name} entrou {member.joined_at}')
     
     async def subcommand(self, ctx):
         '''Checks if a subcommand is being invoked.'''
