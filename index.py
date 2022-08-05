@@ -27,7 +27,7 @@ class MyBot(commands.Cog):
         print('~~~~~~~~~~')
 
     @commands.command()
-    async def roll(self, message, dice: str):
+    async def roll(self, ctx, message, dice: str):
         '''Rola dados.
 
         Exemplo: `!roll 1d6`
