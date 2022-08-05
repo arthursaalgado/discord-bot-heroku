@@ -36,6 +36,10 @@ class MyBot(commands.Cog):
 
         Exemplo: `!roll 1d6`
                  `!roll 2d20`'''
+        await message.reply(ctx)
+        await message.reply(dice)
+        await message.reply(message)
+        await message.reply(self.subcommand(ctx))
         if (await self.subcommand(ctx)):
             try: 
                 rolls, limit = map(int, dice.split('d'))
