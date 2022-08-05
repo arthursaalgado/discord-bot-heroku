@@ -25,6 +25,10 @@ class MyBot(commands.Cog):
     async def on_ready(self):
         print(f'Logged in as {self.bot.user} (ID: {self.bot.user.id})')
         print('~~~~~~~~~~')
+    
+    async def subcommand(self, ctx):
+        '''Checks if a subcommand is being invoked.'''
+        return await 1 if ctx.invoked_subcommand != None else 0
 
     @commands.command()
     async def roll(self, ctx, message, dice: str):
@@ -52,10 +56,6 @@ class MyBot(commands.Cog):
         else:
             member = ctx.author
             await message.reply(f'{member.name} entrou {member.joined_at}')
-    
-    async def subcommand(self, ctx):
-        '''Checks if a subcommand is being invoked.'''
-        return await 1 if ctx.invoked_subcommand != None else 0
 
 
 intents = discord.Intents.default()
