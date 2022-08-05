@@ -32,7 +32,7 @@ class MyBot(commands.Cog):
 
         Exemplo: `!roll 1d6`
                  `!roll 2d20`'''
-        if await self.subcommand(ctx):
+        if (await self.subcommand(ctx)):
             try: 
                 rolls, limit = map(int, dice.split('d'))
                 result = ', '.join(str(random.randint(1, limit)) for r in range(rolls))
@@ -55,7 +55,7 @@ class MyBot(commands.Cog):
     
     async def subcommand(self, ctx):
         '''Checks if a subcommand is being invoked.'''
-        return 1 if ctx.invoked_subcommand != None else 0
+        return await 1 if ctx.invoked_subcommand != None else 0
 
 
 intents = discord.Intents.default()
